@@ -21,7 +21,14 @@ namespace ToDoApp.Controllers
         }
 
         // GET: api/TaskItems
-        //tested: api/taskitems?from=2020-06-20T01:36:55.6367476&to=2020-10-20T23:50:00
+        /// <summary>
+        /// Gets a list of all the tasks.
+        /// </summary>
+        /// <param name="from">Filter tasks from this deadline date time (inclusive). Leave empty if you want to see all tasks.</param>
+        /// <param name="to">Filter tasks up to this this deadline date time (inclusive). Leave empty if you want to see all tasks.</param>
+        /// <returns>A list of tasks.</returns>
+
+        //Get tested for Lab2: api/taskitems?from=2020-06-20T01:36:55.6367476&to=2020-10-20T23:50:00
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TaskItem>>> GetTaskItems(DateTimeOffset? from = null, DateTimeOffset? to = null)
@@ -47,6 +54,11 @@ namespace ToDoApp.Controllers
         }
 
         // GET: api/TaskItems/5
+        /// <summary>
+        /// Returns all details for a task.
+        /// </summary>
+        /// <param name="id">Get task details for specified task id.</param>
+        /// <returns>Complete details of task with specific id.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<TaskItem>> GetTaskItem(long id)
         {
@@ -62,6 +74,12 @@ namespace ToDoApp.Controllers
 
 
         // PUT: api/TaskItems/5
+        /// <summary>
+        /// Updates a task.
+        /// </summary>
+        /// <param name="id">The id of the rask to be updated.</param>
+        /// <param name="taskItem">The task item that will be updated.</param>
+        /// <returns>The updated task.</returns>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -106,9 +124,18 @@ namespace ToDoApp.Controllers
         }
 
         // POST: api/TaskItems
+        /// <summary>
+        /// Creates a new Task item.
+        /// </summary>
+        /// <param name="taskItem"></param>
+        /// <returns>A newly created task.</returns>
+        /// <response code="201">Returns the newly created task.</response>
+        /// <response code="400">If the task item is null.</response>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<TaskItem>> PostTaskItem(TaskItem taskItem)
         {
             _context.TaskItems.Add(taskItem);
@@ -118,6 +145,11 @@ namespace ToDoApp.Controllers
         }
 
         // DELETE: api/TaskItems/5
+        /// <summary>
+        /// Deletes the task with the given id.
+        /// </summary>
+        /// <param name="id">The id of the rask to be deleted.</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<TaskItem>> DeleteTaskItem(long id)
         {
