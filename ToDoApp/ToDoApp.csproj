@@ -8,6 +8,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
+	
+  <ItemGroup>
+    <Compile Remove="Migrations\20200620171639_AddCommentsToTaskItem.cs" />
+    <Compile Remove="Migrations\20200620171639_AddCommentsToTaskItem.Designer.cs" />
+    <Compile Remove="Migrations\20200620172833_AddCommentsChangeToTaskItem.cs" />
+    <Compile Remove="Migrations\20200620172833_AddCommentsChangeToTaskItem.Designer.cs" />
+    <Compile Remove="Migrations\20200620201926_AddCommentsToTaskItem2.cs" />
+    <Compile Remove="Migrations\20200620201926_AddCommentsToTaskItem2.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />

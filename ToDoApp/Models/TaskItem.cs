@@ -8,12 +8,6 @@ namespace ToDoApp.Models
     public enum Importance { Low, Medium, High }
     public enum State { Open, InProgress, Closed }
 
-   /* public class Comment
-    {
-        public long Id { get; set; }
-        public string Text { get; set; }
-        public bool Important { get; set; }
-    }*/
     public class TaskItem
     {
         public long Id { get; set; }
@@ -25,6 +19,6 @@ namespace ToDoApp.Models
         public State State { get; set; }
         public DateTimeOffset ClosedAt { get; set; }
 
-      //  public List<Comment> Comments { get; set; }
+        public List<Comment> Comments { get; set; }
     }
 }

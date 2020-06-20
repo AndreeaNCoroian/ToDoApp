@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoApp.Models;
 
 namespace ToDoApp.Migrations
 {
     [DbContext(typeof(TaskItemsDbContext))]
-    partial class TaskItemsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200620173733_AddCommentsToTaskItem")]
+    partial class AddCommentsToTaskItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
